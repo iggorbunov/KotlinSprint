@@ -2,13 +2,13 @@ package org.example.lesson_1
 
 fun main() {
     var seconds = 6480
-    val hour = seconds / 3600
-    val minute = seconds / 60 - hour * 60
-    seconds = seconds - hour * 3600 - minute * 60
+    val hoursInSeconds = 3600
+    val minuteInSeconds = 60
+    val hoursInMinute = 60
 
-    print("%02d".format(hour))
-    print(":")
-    print("%02d".format(minute))
-    print(":")
-    print("%02d".format(seconds))
+    val hour = seconds / hoursInSeconds
+    val minute = seconds / minuteInSeconds - hour * hoursInMinute
+    seconds = seconds - hour * hoursInSeconds - minute * minuteInSeconds
+
+    print("${"%02d".format(hour)}:${"%02d".format(minute)}:${"%02d".format(seconds)}")
 }
