@@ -7,8 +7,8 @@ fun main() {
     val crystalOreFromBuff = crystalsOre * 0.2
     val ironOreFromBuff = ironOre * 0.2
 
-    print(crystalOreFromBuff.toInt())
-    println(" Кристалической руды")
-    print(ironOreFromBuff.toInt())
-    println(" Железной руды")
+    print("""
+        ${crystalOreFromBuff.toInt()} Кристалической руды
+        ${ironOreFromBuff.toInt()} Железной руды
+        """.trimIndent())
 }
