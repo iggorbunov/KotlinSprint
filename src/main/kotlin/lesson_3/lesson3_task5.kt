@@ -2,13 +2,12 @@ package org.example.lesson_3
 
 fun main() {
     val move = "D2-D4;0"
-    val beginMove = move.substringBefore('-')
-    val endMove = move.substringAfter('-').substringBefore(';')
-    val moveNumber = move.substringAfter(';')
+    val regexForSplit = "[-;]".toRegex()
+    val splitMove = move.split(regexForSplit)
 
     println("""
-        $beginMove
-        $endMove
-        $moveNumber
+        ${splitMove[0]}
+        ${splitMove[1]}
+        ${splitMove[2]}
     """.trimIndent())
 }
