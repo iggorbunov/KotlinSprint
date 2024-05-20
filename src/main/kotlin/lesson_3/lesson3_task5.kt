@@ -2,8 +2,7 @@ package org.example.lesson_3
 
 fun main() {
     val move = "D2-D4;0"
-    val regexForSplit = "[-;]".toRegex()
-    val splitMove = move.split(regexForSplit)
+    val splitMove = move.split("-", ";")
 
     println("""
         ${splitMove[0]}
