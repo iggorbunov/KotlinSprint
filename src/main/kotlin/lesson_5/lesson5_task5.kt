@@ -6,7 +6,7 @@ fun main() {
     val winNumber = List(3) { Random.nextInt(0, 42) }
 
     println("Введите 3 числа от 0 до 42\nПосле каждого числа нажать Enter")
-    val userNumber: List<Int> = List(3) { readLine()!!.toInt() }
+    val userNumber: List<Int> = List(3) { readln().toInt() }
     val countWinNumber = userNumber.intersect(winNumber).size
 
     when (countWinNumber) {
