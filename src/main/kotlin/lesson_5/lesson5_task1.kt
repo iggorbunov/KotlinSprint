@@ -1,14 +1,17 @@
 package org.example.lesson_5
 
+const val TERM1 = 2
+const val TERM2 = 2
+
 fun main() {
     print(
         """
         Докажите что вы не бот - решите пример
-        2 + 2 = 
+        $TERM1 + $TERM2 = 
     """.trimIndent()
     )
-    val answer = readLine()!!.toInt()
+    val answer = readln().toInt()
 
-    if (answer == 4) println("Добро пожаловать!")
+    if (answer == TERM1 + TERM2) println("Добро пожаловать!")
     else println("Доступ запрещен.")
 }
