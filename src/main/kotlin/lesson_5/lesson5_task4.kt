@@ -14,10 +14,10 @@ fun main() {
         Введите имя пользователя
     """.trimIndent()
     )
-    val userName = readLine()
+    val userName = readln()
     if (USERNAME == userName) {
         println("Введите пароль")
-        val password = readLine()
+        val password = readln()
         if (PASSWORD == password) println(
             """
                 [вздыхает...] Ваши данные проверены, и о, чудо, они верны... 
