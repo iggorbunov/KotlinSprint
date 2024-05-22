@@ -5,9 +5,9 @@ const val WIN_NUMBER_2 = 22
 
 fun main() {
     print("Введите первое число от 0 до 42: ")
-    val userNumber1 = readLine()!!.toInt()
+    val userNumber1 = readln().toInt()
     print("Введите второе число от 0 до 42: ")
-    val userNumber2 = readLine()!!.toInt()
+    val userNumber2 = readln().toInt()
 
     if (WIN_NUMBER_1 == userNumber1 && WIN_NUMBER_2 == userNumber2 || WIN_NUMBER_1 == userNumber2 && WIN_NUMBER_2 == userNumber1)
         println("Поздравляем! Вы выиграли главный приз!")
