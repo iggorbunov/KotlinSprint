@@ -2,8 +2,10 @@ package org.example.lesson_7
 
 fun main() {
     val range = 1..6
-    val charset = ('0'..'9') + ('a'..'z')
     var password = ""
-    for (i in range) password += charset.random()
+    for (i in range) {
+        password += if (i % 2 == 0) ('0'..'9').random()
+        else ('a'..'z').random()
+    }
     println(password)
 }
