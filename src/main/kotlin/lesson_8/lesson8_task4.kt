@@ -7,10 +7,10 @@ fun main() {
     )
     for (i in recipeIngredient) println(i)
     println("Введите название ингредиента, который хотите заменить:")
-    val userIngredient = readln()
-    if (userIngredient in recipeIngredient) {
-        println("Ингредиент $userIngredient в рецепте есть\nВведите ингредиент, который хотите добавить:")
-        recipeIngredient[recipeIngredient.indexOf(userIngredient)] = readln()
+    val userIngredient = recipeIngredient.indexOf(readln())
+    if (userIngredient > 0) {
+        println("Ингредиент ${recipeIngredient[userIngredient]} в рецепте есть\nВведите ингредиент, который хотите добавить:")
+        recipeIngredient[userIngredient] = readln()
         println("Готово! Вы сохранили следующий список:")
         for (i in recipeIngredient) println(i)
         return
