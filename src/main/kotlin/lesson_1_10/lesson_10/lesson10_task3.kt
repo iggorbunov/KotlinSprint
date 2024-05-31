@@ -8,8 +8,12 @@ fun main() {
 
 fun passwordGenerate(length: Int): String {
     var password = ""
+    val numberRange = '0'..'9'
+    val symbolRange = ' '..'\''
     for (i in 1..length)
-        password += (if (i % 2 == 0) ('0'..'9').random()
-        else (listOf('!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ' ', '\'').random()))
+        when (i % 2 == 0) {
+            true -> password += numberRange.random()
+            false -> password += symbolRange.random()
+        }
     return password
 }
