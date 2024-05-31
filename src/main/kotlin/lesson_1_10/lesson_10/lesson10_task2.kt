@@ -5,13 +5,12 @@ fun main() {
     val login = readln()
     println("Введите пароль:")
     val password = readln()
-    if (validation(login) >= 4 && validation(
-            password
-        ) >= 4) {
-        println("Добро пожаловать!")
-    } else println("Логин или пароль недостаточно длинные")
+    when (validation(login) && validation(password)) {
+        true -> print("Добро пожаловать!")
+        false -> print("Логин или пароль недостаточно длинные")
+    }
 }
 
-fun validation(text: String): Int {
-    return text.length
+fun validation(text: String): Boolean {
+    return (text.length >= 4)
 }
