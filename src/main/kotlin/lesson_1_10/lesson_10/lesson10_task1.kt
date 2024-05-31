@@ -1,17 +1,16 @@
 package org.example.lesson_1_10.lesson_10
 
+import kotlin.random.Random
+
 fun main() {
     val resultUser = diceThrow()
     val resultComputer = diceThrow()
     println("Ход игрока: $resultUser\nХод компьютера: $resultComputer")
-    if (resultUser == resultComputer) {
-        println("Ничья")
-    } else when (resultUser > resultComputer) {
-        true -> println("Победило человечество")
-        false -> println("Победила машина")
-    }
+    if (resultUser > resultComputer) println("Победило человечество")
+    else if (resultUser < resultComputer) println("Победила машина")
+    else println("Ничья")
 }
 
 fun diceThrow(): Int {
-    return (1..6).random()
+    return Random.nextInt(1, 6)
 }
