@@ -12,6 +12,7 @@ fun main() {
     }
 }
 
+
 fun diceThrow(): Int {
     return (1..6).random()
 }
