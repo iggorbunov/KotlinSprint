@@ -5,11 +5,6 @@ fun main() {
     println("Введите 5 ингредиентов")
     for (i in 1..5) recipeList.add(readln())
     recipeList = recipeList.sorted().toMutableSet()
-    recipeList.forEach {
-        when (recipeList.indexOf(it)) {
-            0 -> print("${it.capitalize()}, ")
-            recipeList.size - 1 -> print(it)
-            else -> print("$it, ")
-        }
-    }
+    val outputRecipeList = recipeList.map { it.lowercase().replaceFirstChar(Char::uppercase) }.joinToString(", ")
+    println(outputRecipeList)
 }
