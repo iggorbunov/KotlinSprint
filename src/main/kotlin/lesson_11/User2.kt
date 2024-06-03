@@ -38,6 +38,7 @@ class User2(
         if (password == currentPassword) {
             print("Введите новый пароль: ")
             password = readln()
+            println("Пароль успешно изминен")
         }
         else println("Неверно введен текущий пароль")
     }
