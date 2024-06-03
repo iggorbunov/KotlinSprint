@@ -12,24 +12,24 @@ fun main() {
     println("Введите пароль")
     val password = readln()
     var authToken = ""
-    if (isValidationCredential(userName, USERNAME) == true && isValidationCredential(password, PASSWORD) == true)
-        authToken = generatorJWT()
+    if (validateCredential(userName, USERNAME) && validateCredential(password, PASSWORD))
+        authToken = generateJWT()
     else authToken = "null"
     val cartForView = cart(authToken)
-    if (cartForView != "null") println("Корзина содержит\n$cartForView")
+    if (!cartForView.isNullOrEmpty()) println("Корзина содержит\n$cartForView")
     else println("Пользователь не авторизован")
 }
 
-fun cart(token: String): String {
+fun cart(token: String): String? {
     if (token != "null") return CART
-    else return "null"
+    else return null
 }
 
-fun isValidationCredential(fromUser: String, fromDataBase: String): Boolean {
+fun validateCredential(fromUser: String, fromDataBase: String): Boolean {
     return fromUser == fromDataBase
 }
 
-fun generatorJWT(): String {
+fun generateJWT(): String {
     var jwt = ""
     for (i in 1..32) jwt += CHARSET.random().toString()
     return jwt
