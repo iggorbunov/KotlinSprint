@@ -4,6 +4,7 @@ data class Category(
     val categoryId: Int,
     val name: String,
     val icon: Int? = null,
+    val imageURL: String,
     val recipes: List<Recipe>
 )
 
@@ -11,6 +12,7 @@ data class Recipe(
     val recipeId: Int,
     val name: String,
     val icon: Int? = null,
+    val imageURL: String,
     val categoryId: Int,
     val ingredients: List<Ingredient>
 )
