@@ -1,23 +1,21 @@
 package lesson_11
 
-import java.util.*
-
 class Forum(
     val users: MutableList<MemberForum> = mutableListOf(),
     val messages: MutableList<MessageForum> = mutableListOf(),
+    var userId: Int = 1
 ) {
     fun createNewUser(userName: String): MemberForum {
-        val UUID = UUID.randomUUID().toString()
-        val newUser = MemberForum(UUID, userName)
+        val newUser = MemberForum(userId.toString(), userName)
+        userId++
         users.add(newUser)
         return newUser
     }
 
-    fun createNewMessage(userId: String) {
+    fun createNewMessage(userId: String, userMessage: String) {
         val user = users.find { it.userId == userId }
         if (user != null) {
-            println("${user.userName} набирает сообщение")
-            messages.add(MessageForum(user.userId, readln()))
+            messages.add(MessageForum(user.userId, userMessage))
         } else println("Такого пользователя нет")
     }
 
@@ -38,11 +36,20 @@ fun main() {
     val forum = Forum()
     val user1 = forum.createNewUser("Ilya")
     val user2 = forum.createNewUser("Ivan")
+    var message: String
 
-    forum.createNewMessage(user1.userId)
-    forum.createNewMessage(user2.userId)
-    forum.createNewMessage(user1.userId)
-    forum.createNewMessage(user2.userId)
+    println("${user1.userName} набирает сообщение")
+    message = readln()
+    forum.createNewMessage(user1.userId, message)
+    println("${user2.userName} набирает сообщение")
+    message = readln()
+    forum.createNewMessage(user2.userId, message)
+    println("${user1.userName} набирает сообщение")
+    message = readln()
+    forum.createNewMessage(user1.userId, message)
+    println("${user2.userName} набирает сообщение")
+    message = readln()
+    forum.createNewMessage(user2.userId, message)
 
     forum.printThread()
 }
