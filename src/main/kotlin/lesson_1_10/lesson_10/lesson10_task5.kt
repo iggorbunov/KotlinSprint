@@ -11,17 +11,17 @@ fun main() {
     val userName = readln()
     println("Введите пароль")
     val password = readln()
-    var authToken = ""
+    var authToken: String?
     if (validateCredential(userName, USERNAME) && validateCredential(password, PASSWORD))
         authToken = generateJWT()
-    else authToken = "null"
+    else authToken = null
     val cartForView = cart(authToken)
     if (!cartForView.isNullOrEmpty()) println("Корзина содержит\n$cartForView")
     else println("Пользователь не авторизован")
 }
 
-fun cart(token: String): String? {
-    if (token != "null") return CART
+fun cart(token: String?): String? {
+    if (token != null) return CART
     else return null
 }
 
