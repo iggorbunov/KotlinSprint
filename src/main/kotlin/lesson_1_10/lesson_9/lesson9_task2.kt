@@ -1,4 +1,4 @@
-package org.example.lesson_9
+package org.example.lesson_1_10.lesson_9
 
 fun main() {
     val basicRecipeIngredient = mutableListOf("яйцо", "соль", "перец")

@@ -1,4 +1,4 @@
-package org.example.lesson_8
+package org.example.lesson_1_10.lesson_8
 
 fun main() {
     println("Введите количество ингредиентов:")
