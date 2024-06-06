@@ -2,24 +2,27 @@ package org.example.lesson_12
 
 import kotlin.random.Random
 
-class Weather5(dayTemperature: Int, nightTemperature: Int, precipitation: Boolean) {
-    var dayTemperature = dayTemperature
-    var nightTemperature = nightTemperature
-    var precipitation = precipitation
+const val KELVIN_TEMPERATURE = 273
+
+class Weather5(var dayTemperature: Int, var nightTemperature: Int, var precipitation: Boolean) {
+
+    init {
+        this.dayTemperature = dayTemperature - KELVIN_TEMPERATURE
+        this.nightTemperature = nightTemperature - KELVIN_TEMPERATURE
+    }
 }
 
 fun main() {
     val whetherList: MutableList<Weather5> = mutableListOf()
     val dayList: MutableList<Int> = mutableListOf()
     val nightList: MutableList<Int> = mutableListOf()
-    val precipitationDay: MutableList<Int> = mutableListOf()
 
-    for (i in 1..30) whetherList.add(Weather5(Random.nextInt(19, 25), Random.nextInt(12, 19), Random.nextBoolean()))
-    for (i in 0..29) {
-        dayList.add(whetherList[i].dayTemperature)
-        nightList.add(whetherList[i].nightTemperature)
-        if (whetherList[i].precipitation == true) precipitationDay.add(i)
+    for (i in 1..30) whetherList.add(Weather5(Random.nextInt(292, 298), Random.nextInt(285, 292), Random.nextBoolean()))
+    whetherList.map {
+        dayList.add(it.dayTemperature)
+        nightList.add(it.nightTemperature)
     }
+    val precipitationDay = whetherList.filterNot { it.precipitation == false }.toMutableList()
     println(
         """
         Средняя температура днем: ${dayList.average()}
