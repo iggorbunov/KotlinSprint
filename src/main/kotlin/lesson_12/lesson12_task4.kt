@@ -1,15 +1,19 @@
 package org.example.lesson_12
 
-class Weather4 {
-    var dayTemperature = 20
-    var nightTemperature = 15
-    var precipitation = false
+const val KELVIN_TEMPERATURE = 273
+
+class Weather4(
+    dayTemperature: Int,
+    nightTemperature: Int,
+    precipitation: Boolean = false,
+) {
+
 
     init {
         println(
             """
-            Температура днем: ${dayTemperature}
-            Температура ночью: ${nightTemperature}
+            Температура днем: ${dayTemperature - KELVIN_TEMPERATURE}
+            Температура ночью: ${nightTemperature - KELVIN_TEMPERATURE}
             Наличие осадков: $precipitation
             
         """.trimIndent()
@@ -18,5 +22,5 @@ class Weather4 {
 }
 
 fun main() {
-    val day = Weather4()
+    val day = Weather4(300,290)
 }
