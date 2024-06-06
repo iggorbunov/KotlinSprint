@@ -3,9 +3,7 @@ package org.example.lesson_13
 class Subscriber3(val name: String, val phoneNumber: Long, var company: String? = null) {
 
     fun outputUserInfo(name: String, phoneNumber: Long, company: String?) {
-        if (company.isNullOrEmpty()) {
-            println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: <не указано>")
-        } else println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: $company")
+        println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: ${company ?: "<не указано>"}")
     }
 }
 
