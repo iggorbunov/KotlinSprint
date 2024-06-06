@@ -1,9 +1,6 @@
 package org.example.lesson_12
 
-class Weather2(dayTemperature: Int, nightTemperature: Int, precipitation: Boolean) {
-    var dayTemperature = dayTemperature
-    var nightTemperature = nightTemperature
-    var precipitation = precipitation
+class Weather2(val dayTemperature: Int, val nightTemperature: Int, val precipitation: Boolean) {
 
     fun outputWeather() {
         println(
