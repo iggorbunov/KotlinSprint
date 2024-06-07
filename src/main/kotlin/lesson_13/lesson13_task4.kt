@@ -3,16 +3,26 @@ package org.example.lesson_13
 class Subscriber4(val name: String, val phoneNumber: Long, val company: String?) {
 
     fun outputUserInfo() {
-        if (company.isNullOrEmpty()) {
-            println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: <не указано>")
-        } else println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: $company")
+        println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: ${company ?: "<не указано>"}\n")
     }
 
 }
 
 fun main() {
-    val user = addContact()
-    user?.outputUserInfo()
+    val contactList: MutableList<Subscriber4> = mutableListOf()
+    while (true) {
+        println("Хотите добавить контакт?")
+        if (readln() == "да") {
+            contactList.add(addContact() ?: continue)
+            continue
+        }
+        break
+    }
+    println("Все добавленные контакты:")
+    contactList.forEach {
+        it.outputUserInfo()
+    }
+
 }
 
 fun addContact(): Subscriber4? {
@@ -28,6 +38,7 @@ fun addContact(): Subscriber4? {
 
     println("Введите компанию (оставьте поле пустым, если не хотите указывать компанию)")
     val inputCompany = readLine()
+    if (readLine().isNullOrEmpty()) null
 
     return Subscriber4(inputName, inputPhoneNumber, inputCompany)
 }
